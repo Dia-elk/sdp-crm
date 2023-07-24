@@ -1,94 +1,86 @@
+<template>
+    <Head title="Login"/>
+    <AuthLayout>
+        <div class="flex flex-col gap-10 items-center justify-center">
+            <!-- Welcome message -->
+            <div class="flex flex-col justify-center items-center gap-1 sm:gap-4">
+                <Wave/>
+                <h1 class="text-xl sm:text-3xl font-bold">
+                    Welcome Back
+                </h1>
+                <h6 class="text-neutral-400 text-[10px] sm:text-sm">
+                    Enter your login details below
+                </h6>
+            </div>
+
+            <!-- End of Welcome message -->
+
+            <!-- Login Form -->
+            <form @submit.prevent="form.post(route('login.store'))">
+                <div class="flex flex-col gap-4 sm:gap-6">
+                    <!-- Email Input -->
+                    <div>
+                        <input type="email"
+                               placeholder="E-mail"
+                               v-model="form.email"
+                               class="w-full rounded-lg bg-transparent border-neutral-400 placeholder-neutral-400 focus:border-blue-600"
+                               :class="form.errors.email? 'focus:border-red-600 border-red-600' : 'focus:border-blue-600 border-neutral-400' "
+                        >
+                        <!-- error msg -->
+                        <div v-show="form.errors.email" class="mt-1">
+                            <p class="text-red-600 text-xs">
+                                {{ form.errors.email }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div>
+                        <input type="password"
+                               placeholder="Password"
+                               v-model="form.password"
+                               class="w-full rounded-lg bg-transparent  placeholder-neutral-400 "
+                               :class="form.errors.password? 'focus:border-red-600 border-red-600' : 'focus:border-blue-600 border-neutral-400' "
+
+                        >
+                        <!-- error msg -->
+                        <div v-show="form.errors.password" class="mt-1">
+                            <p class="text-red-600 text-xs">
+                                {{ form.errors.password }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- btn -->
+                    <div class="mt-6">
+                        <button type="submit" :disabled="form.processing">
+                            <Button :class="form.processing? ' bg-neutral-500 hover:bg-neutral-500' : '' ">
+                                Login
+                            </Button>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!-- End of Login Form -->
+
+        </div>
+    </AuthLayout>
+</template>
+
 <script setup>
-import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
 
-defineProps({
-    canResetPassword: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
-});
+import {Head, Link, useForm} from "@inertiajs/vue3";
+import AuthLayout from "@/Layouts/AuthLayout.vue";
+import Button from "@/Shared/Button.vue";
+import Wave from "@/Icons/Wave.vue";
+import {ref} from "vue";
 
-const form = useForm({
-    email: '',
-    password: '',
-    remember: false,
-});
+let form = useForm({
+    email: ref(),
+    password: ref()
+})
 
-const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
-};
+
 </script>
 
-<template>
-    <GuestLayout>
-        <Head title="Log in" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
-
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Forgot your password?
-                </Link>
-
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
-            </div>
-        </form>
-    </GuestLayout>
-</template>
