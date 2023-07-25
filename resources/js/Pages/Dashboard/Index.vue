@@ -3,11 +3,9 @@
 
         <Head title="Welcome"/>
 
-     <Link href="/logout" method="delete">
-         <Button>Log Out</Button>
-     </Link>
-
-
+        <Link href="/logout" method="delete">
+            <Button>Log Out</Button>
+        </Link>
     </div>
 </template>
 
