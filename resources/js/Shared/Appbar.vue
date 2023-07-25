@@ -3,6 +3,12 @@
         <!-- logo -->
        <Logo/>
         <!-- end of logo -->
+        <p class="text-xs font-bold">
+            Welcome back ,
+            <span class="text-blue-600 text-sm">
+                {{$page.props.auth.user.name}}
+            </span>
+        </p>
     </div>
 </template>
 
