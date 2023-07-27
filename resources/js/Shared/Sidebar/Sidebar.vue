@@ -31,7 +31,8 @@
 
             <SidebarLink :active="$page.url.startsWith('/dashboard')"
                          :is-big-side-bar="isBigSideBar"
-                         :href="'/dashboard'">
+                         :href="'/dashboard'"
+            >
                 <!-- icon -->
                 <template v-slot:icon>
                     <DashboardIcon/>
@@ -136,7 +137,8 @@
 
             <SidebarLink :active="$page.url.startsWith('/reports')"
                          :is-big-side-bar="isBigSideBar"
-                         :href="'/reports'">
+                         :href="'/reports'"
+                         v-show="$page.props.auth.user.is_admin === 1">
                 <!-- icon -->
                 <template v-slot:icon>
                     <ReportsIcon/>
@@ -156,7 +158,8 @@
             <!-- Team link -->
             <SidebarLink :active="$page.url.startsWith('/team')"
                          :is-big-side-bar="isBigSideBar"
-                         :href="'/team'">
+                         :href="'/team'"
+                         v-show="$page.props.auth.user.is_admin === 1">
                 <!-- icon -->
                 <template v-slot:icon>
                     <TeamIcon/>
