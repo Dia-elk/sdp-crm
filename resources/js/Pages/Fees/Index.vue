@@ -2,7 +2,7 @@
     <Head title="Files"/>
 
     <div class="h-full flex justify-center items-center">
-        Files
+        Fees
     </div>
 
 </template>
