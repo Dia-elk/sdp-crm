@@ -110,7 +110,8 @@
 
         <SidebarLink :active="$page.url.startsWith('/reports')"
                      :is-big-side-bar="true"
-                     :href="'/reports'" @click="drawerToggle">
+                     :href="'/reports'" @click="drawerToggle"
+                     v-show="$page.props.auth.user.is_admin === 1">
             <!-- icon -->
             <template v-slot:icon>
                 <ReportsIcon/>
@@ -130,7 +131,8 @@
         <!-- Team link -->
         <SidebarLink :active="$page.url.startsWith('/team')"
                      :is-big-side-bar="true"
-                     :href="'/team'" @click="drawerToggle">
+                     :href="'/team'" @click="drawerToggle"
+                     v-show="$page.props.auth.user.is_admin === 1">
             <!-- icon -->
             <template v-slot:icon>
                 <TeamIcon/>
@@ -149,7 +151,7 @@
         <!-- Settings link -->
         <SidebarLink :active="$page.url.startsWith('/settings')"
                      :is-big-side-bar="true"
-                     :href="'/settings'" @click="drawerToggle">
+                     :href="'/settings'" @click="drawerToggle" >
             <!-- icon -->
             <template v-slot:icon>
                 <SettingIcon/>
