@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Models\Address;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
 // home
 Route::get('/',function (){
-    return Inertia::render('Website/Welcome');
+    return Inertia::render('Website/Welcome' , [
+        'clients' => \App\Models\Client::with('order','address')->get(),
+    ]);
 });
 
 
