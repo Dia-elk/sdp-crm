@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function (){
             'weekIncome' => \App\Models\Order::getTotalIncomeLastWeek(),
             'monthIncome' => \App\Models\Order::getTotalIncomeLastMonth(),
             'yearIncome' => \App\Models\Order::getTotalIncomeLastYear(),
+            'ordersCount' => \App\Models\Order::onGoingOrdersCount(),
         ]);
     })->name('dashboard');
 

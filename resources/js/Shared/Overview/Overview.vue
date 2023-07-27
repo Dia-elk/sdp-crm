@@ -29,7 +29,9 @@
             :positive="yearIncome.percentage>0? true : false"
         />
         <!-- OnProgress Orders -->
-        <OverviewOrdersCard/>
+        <OverviewOrdersCard
+            :orders-count="ordersCount"
+        />
 
 
     </div>
@@ -44,6 +46,7 @@ defineProps({
     weekIncome:Array,
     monthIncome:Array,
     yearIncome:Array,
+    ordersCount:Number,
 })
 
 function formatNumber(number)

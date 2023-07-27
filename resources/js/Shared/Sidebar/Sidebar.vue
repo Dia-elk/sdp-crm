@@ -243,7 +243,7 @@ import {Link} from "@inertiajs/vue3";
 import LogoutIcon from "@/Icons/SideBarIcons/Logout/LogoutIcon.vue";
 import HoverLogoutIcon from "@/Icons/SideBarIcons/Logout/HoverLogoutIcon.vue";
 
-let isBigSideBar = ref(true)
+let isBigSideBar = ref(false)
 
 function sidebarToggle() {
     isBigSideBar.value = !isBigSideBar.value

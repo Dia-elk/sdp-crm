@@ -118,4 +118,8 @@ class Order extends Model
             'percentage' => $percentageDifference,
         ];
     }
+    public static function onGoingOrdersCount()
+    {
+        return Order::all()->where('statut_id',1)->count();
+    }
 }
