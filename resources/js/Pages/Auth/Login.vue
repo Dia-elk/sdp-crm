@@ -23,7 +23,7 @@
                         <input type="email"
                                placeholder="E-mail"
                                v-model="form.email"
-                               class="w-full rounded-lg bg-transparent border-neutral-400 placeholder-neutral-400 focus:border-blue-600"
+                               class="w-full rounded-lg bg-transparent border-neutral-400 placeholder-neutral-400 placeholder:text-sm focus:border-blue-600"
                                :class="form.errors.email? 'focus:border-red-600 border-red-600' : 'focus:border-blue-600 border-neutral-400' "
                         >
                         <!-- error msg -->
@@ -39,7 +39,7 @@
                         <input type="password"
                                placeholder="Password"
                                v-model="form.password"
-                               class="w-full rounded-lg bg-transparent  placeholder-neutral-400 "
+                               class="w-full rounded-lg bg-transparent  placeholder-neutral-400 placeholder:text-sm"
                                :class="form.errors.password? 'focus:border-red-600 border-red-600' : 'focus:border-blue-600 border-neutral-400' "
 
                         >
