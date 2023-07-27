@@ -1,6 +1,6 @@
 <template>
     <div class="border-r-[0.6px] h-screen border-black border-opacity-20 transition-all ease-out duration-700"
-         :class="isBigSideBar? 'w-[250px]' : 'w-[50px]'">
+         :class="isBigSideBar? 'lg:w-[250px] w-[180px]' : 'w-[50px]'">
 
         <div class="w-full h-12 relative" @click="sidebarToggle">
             <div class="absolute right-[-10px] bottom-4" v-show="isBigSideBar">

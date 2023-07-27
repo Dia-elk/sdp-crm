@@ -12,7 +12,7 @@
             <div class="flex justify-center">
                 <p class="text-neutral-400 text-[10px]">
                     Copyright © {{ currentYear }} | Created by
-                    <span class="text-orange-400 font-bold text-xs">
+                    <span class="text-blue-600 font-bold text-xs">
                         <a href="https://diaelk.dev/" target="_blank">diaelk.dev</a>
                     </span>
                 </p>
