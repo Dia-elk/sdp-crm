@@ -27,7 +27,7 @@ class OrderFactory extends Factory
             'client_id' => rand(1,Client::count()),
             'statut_id'=> rand(1,Statut::count()),
             'quantity' => rand(1,5000),
-            'price' => rand(1,20000),
+            'price' => rand(1,1000),
         ];
     }
 }

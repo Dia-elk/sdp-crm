@@ -5,7 +5,7 @@
             <div class="sm:block hidden">
                 <Sidebar/>
             </div>
-            <div class="w-full p-4">
+            <div class="w-full p-4 ">
                 <slot/>
             </div>
         </div>
