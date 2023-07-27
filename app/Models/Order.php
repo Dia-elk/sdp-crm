@@ -120,6 +120,6 @@ class Order extends Model
     }
     public static function onGoingOrdersCount()
     {
-        return Order::all()->where('statut_id',1)->count();
+        return Order::where('statut_id',1)->count();
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <Head title="Dashboard"/>
 
-    <div >
+    <div class="space-y-4">
 
         <!-- Overview -->
        <div class="space-y-4" v-if="$page.props.auth.user.is_admin===1">
@@ -16,6 +16,13 @@
            />
        </div>
         <!-- End of Overview -->
+
+        <!-- orders -->
+        <div >
+            <h1 class="text-2xl font-bold">
+                Orders
+            </h1>
+        </div>
 
     </div>
 
