@@ -111,26 +111,26 @@
 
             <!-- End of Products link -->
 
-            <!-- Files link -->
+            <!-- Fees link -->
 
-            <SidebarLink :active="$page.url.startsWith('/files')"
+            <SidebarLink :active="$page.url.startsWith('/fees')"
                          :is-big-side-bar="isBigSideBar"
-                         :href="'/files'">
+                         :href="'/fees'">
                 <!-- icon -->
                 <template v-slot:icon>
-                    <FilesIcon/>
+                    <FeesIcon/>
                 </template>
                 <!-- hover icon -->
                 <template v-slot:HoverIcon>
-                    <HoverFilesIcon/>
+                    <HoverFeesIcon/>
                 </template>
                 <!-- title -->
                 <template v-slot:title>
-                    Files
+                    Fees
                 </template>
             </SidebarLink>
 
-            <!-- End of Files link -->
+            <!-- End of Fees link -->
 
             <!-- Reports link -->
 
@@ -228,8 +228,8 @@ import OrdersIcon from "@/Icons/SideBarIcons/Ordersicon/OrdersIcon.vue";
 import HoverOrdersIcon from "@/Icons/SideBarIcons/Ordersicon/HoverOrdersIcon.vue";
 import ProductsIcon from "@/Icons/SideBarIcons/ProductsIcon/ProductsIcon.vue";
 import HoverProductsIcon from "@/Icons/SideBarIcons/ProductsIcon/HoverProductsIcon.vue";
-import FilesIcon from "@/Icons/SideBarIcons/FilesIcon/FilesIcon.vue";
-import HoverFilesIcon from "@/Icons/SideBarIcons/FilesIcon/HoverFilesIcon.vue";
+import FeesIcon from "@/Icons/SideBarIcons/FeesIcon/FeesIcon.vue";
+import HoverFeesIcon from "@/Icons/SideBarIcons/FeesIcon/HoverFeesIcon.vue";
 import ReportsIcon from "@/Icons/SideBarIcons/ReportsIcon/ReportsIcon.vue";
 import HoverReportsIcon from "@/Icons/SideBarIcons/ReportsIcon/HoverReportsIcon.vue";
 import TeamIcon from "@/Icons/SideBarIcons/TeamIcon/TeamIcon.vue";

@@ -35,9 +35,9 @@ Route::middleware('auth')->group(function (){
         return Inertia::render('Products/Index');
     })->name('products');
 
-    Route::get('/files', function (){
-        return Inertia::render('Files/Index');
-    })->name('files');
+    Route::get('/fees', function (){
+        return Inertia::render('Fees/Index');
+    })->name('fees');
 
     Route::get('/reports', function (){
         return Inertia::render('Reports/Index');
