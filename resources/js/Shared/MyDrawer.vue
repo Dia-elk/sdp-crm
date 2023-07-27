@@ -1,6 +1,7 @@
 <template>
-    <div class="h-screen sm:hidden w-[300px]  z-10 absolute flex flex-col gap-4  py-16 top-0 bg-white transition-all duration-500"
-         :class="isOpen? 'right-0':' hidden right-[-300px]'">
+    <div class="h-screen  w-[300px]  z-10 absolute flex flex-col gap-4  py-16 top-0 bg-white "
+         :class="isOpen? 'right-0':' right-[-300px]'"
+         v-show="isOpen">
         <!-- Dashboard link -->
 
         <SidebarLink :active="$page.url.startsWith('/dashboard')"
@@ -191,8 +192,9 @@
     </div>
 
     <!-- drawer background -->
-    <div class="h-screen w-full sm:hidden bg-black opacity-40 transition-all duration-500 absolute  py-12 top-0"
-         :class="isOpen? 'left-0':' hidden left-[-640px]'">
+    <div class="h-screen w-full  bg-black opacity-40  absolute  py-12 top-0"
+         :class="isOpen? 'left-0':'left-[-640px]'"
+         v-show="isOpen">
     </div>
 </template>
 
