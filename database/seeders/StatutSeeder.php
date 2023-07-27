@@ -14,15 +14,15 @@ class StatutSeeder extends Seeder
     public function run(): void
     {
         Statut::create([
-            'name'=> 'On Progress'
-        ]);
-
-        Statut::create([
-            'name'=> 'Confirming'
+            'name'=> 'In Progress'
         ]);
 
         Statut::create([
             'name'=> 'Done'
+        ]);
+
+        Statut::create([
+            'name'=> 'Cancelled'
         ]);
     }
 }
