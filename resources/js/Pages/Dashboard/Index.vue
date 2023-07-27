@@ -1,5 +1,5 @@
 <template>
-    <Head title="Welcome"/>
+    <Head title="Dashboard"/>
 
     <div class="h-full flex justify-center items-center">
         Dashboard
