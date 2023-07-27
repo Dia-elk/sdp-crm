@@ -46,10 +46,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function role(): BelongsTo
-    {
-        return $this->belongsTo(Role::class);
-    }
     public function order():HasMany
     {
         return $this->hasMany(Order::class);

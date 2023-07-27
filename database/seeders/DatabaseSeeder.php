@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         Product::factory(20)->create();
         $this->call([
             StatutSeeder::class,
-            RoleSeeder::class,
             UserSeeder::class,
             ClientSeeder::class,
             OrderSeeder::class
