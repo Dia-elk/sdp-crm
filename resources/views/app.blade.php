@@ -13,7 +13,7 @@
         @inertiaHead
 
     </head>
-    <body class="font-QuickSand">
+    <body class="font-QuickSand overflow-hidden">
         @inertia
     </body>
 </html>

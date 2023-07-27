@@ -1,7 +1,7 @@
 <template>
-    <div class="h-screen  w-[300px]  z-10 absolute flex flex-col gap-4  py-16 top-0 bg-white "
+    <div class="h-screen  w-[300px] sm:hidden transition-all  top-0 duration-500 z-10 absolute flex flex-col gap-4  py-16 top-0 bg-white "
          :class="isOpen? 'right-0':' right-[-300px]'"
-         v-show="isOpen">
+         >
         <!-- Dashboard link -->
 
         <SidebarLink :active="$page.url.startsWith('/dashboard')"
@@ -192,9 +192,9 @@
     </div>
 
     <!-- drawer background -->
-    <div class="h-screen w-full  bg-black opacity-40  absolute  py-12 top-0"
-         :class="isOpen? 'left-0':'left-[-640px]'"
-         v-show="isOpen">
+    <div class="h-screen w-full sm:hidden  bg-black opacity-40  absolute transition-all duration-300  py-12 top-0"
+         :class="isOpen? 'left-0':' left-[-640px]'"
+       >
     </div>
 </template>
 
@@ -218,9 +218,14 @@ import SettingIcon from "@/Icons/SideBarIcons/SettingsIcon/SettingIcon.vue";
 import HoverClientsIcon from "@/Icons/SideBarIcons/ClientsIcon/HoverClientsIcon.vue";
 import HoverSettingIcon from "@/Icons/SideBarIcons/SettingsIcon/HoverSettingIcon.vue";
 import HoverDashboardIcon from "@/Icons/SideBarIcons/DashboardIcon/HoverDashboardIcon.vue";
+import {ref} from "vue";
 
 defineProps({
     isOpen: Boolean,
-    drawerToggle : Function,
-})
+    drawerToggle:Function
+});
+
+
+
+
 </script>

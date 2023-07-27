@@ -1,5 +1,5 @@
 <template>
-    <Head title="Files"/>
+    <Head title="Fees"/>
 
     <div class="h-full flex justify-center items-center">
         Fees
