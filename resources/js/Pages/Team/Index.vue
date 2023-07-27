@@ -1,8 +1,8 @@
 <template>
-    <Head title="Welcome"/>
+    <Head title="Team"/>
 
     <div class="h-full flex justify-center items-center">
-        Dashboard
+        Team
     </div>
 
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <script setup>
-import {Head, Link} from "@inertiajs/vue3";
-import Button from "@/Shared/Button.vue";
+
 import AdminLayout from "@/Layouts/AdminLayout.vue";
+import {Head} from "@inertiajs/vue3";
 </script>
