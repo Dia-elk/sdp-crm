@@ -15,9 +15,7 @@ export default {
             fontFamily: {
                 QuickSand: ['Quicksand'],
             },
-            backgroundImage:{
-                'welcomeBg' : "url('images/welcomeBg.jpg')",
-            },
+
         },
     },
 
