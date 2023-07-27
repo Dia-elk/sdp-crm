@@ -191,7 +191,7 @@
     </div>
 
     <!-- drawer background -->
-    <div class="h-screen w-full sm:hidden bg-black opacity-40 transition-all duration-500 absolute  py-12 top-0 bg-white"
+    <div class="h-screen w-full sm:hidden bg-black opacity-40 transition-all duration-500 absolute  py-12 top-0"
          :class="isOpen? 'left-0':' hidden left-[-640px]'">
     </div>
 </template>
