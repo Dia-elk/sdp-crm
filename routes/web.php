@@ -24,7 +24,11 @@ Route::delete('/logout', [LoginController::class, 'destroy']);
 Route::middleware('auth')->group(function (){
 
     Route::get('/dashboard', function (){
-        return Inertia::render('Dashboard/Index');
+        return Inertia::render('Dashboard/Index' , [
+            'weekIncome' => \App\Models\Order::getTotalIncomeLastWeek(),
+            'monthIncome' => \App\Models\Order::getTotalIncomeLastMonth(),
+            'yearIncome' => \App\Models\Order::getTotalIncomeLastYear(),
+        ]);
     })->name('dashboard');
 
     Route::get('/clients', function (){
