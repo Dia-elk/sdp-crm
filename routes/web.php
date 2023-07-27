@@ -42,16 +42,19 @@ Route::middleware('auth')->group(function (){
         return Inertia::render('Fees/Index');
     })->name('fees');
 
-    Route::get('/reports', function (){
-        return Inertia::render('Reports/Index');
-    })->name('reports');
-
-    Route::get('/team', function (){
-        return Inertia::render('Team/Index');
-    })->name('team');
-
     Route::get('/settings', function (){
         return Inertia::render('Settings/Index');
     })->name('settings');
 
+
+    // Only Admins Routes
+ Route::middleware('auth.admin')->group(function (){
+     Route::get('/reports', function (){
+         return Inertia::render('Reports/Index');
+     })->name('reports');
+
+     Route::get('/team', function (){
+         return Inertia::render('Team/Index');
+     })->name('team');
+ });
 });
