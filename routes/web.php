@@ -23,22 +23,13 @@ Route::delete('/logout', [LoginController::class, 'destroy']);
 // Routes that only for admins
 Route::middleware('auth')->group(function (){
 
-    Route::get('/dashboard', function (){
-        return Inertia::render('Dashboard/Index' , [
-            'weekIncome' => \App\Models\Order::getTotalIncomeLastWeek(),
-            'monthIncome' => \App\Models\Order::getTotalIncomeLastMonth(),
-            'yearIncome' => \App\Models\Order::getTotalIncomeLastYear(),
-            'ordersCount' => \App\Models\Order::onGoingOrdersCount(),
-        ]);
-    })->name('dashboard');
+    Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 
     Route::get('/clients', function (){
         return Inertia::render('Clients/Index');
     })->name('clients');
 
-    Route::get('/orders', function (){
-        return Inertia::render('Orders/Index');
-    })->name('orders');
+    Route::resource('orders' , \App\Http\Controllers\OrderController::class);
 
     Route::get('/products', function (){
         return Inertia::render('Products/Index');
