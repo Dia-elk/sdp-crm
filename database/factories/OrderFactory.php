@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Client;
 use App\Models\File;
-use App\Models\Product;
 use App\Models\Statut;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
