@@ -9,7 +9,8 @@ use Inertia\Inertia;
 // home
 Route::get('/',function (){
     return Inertia::render('Website/Welcome' , [
-        'clients' => \App\Models\Client::with('order','address')->get(),
+        'user' => \App\Models\User::all()->where('is_admin',false)->first(),
+        'admin' => \App\Models\User::all()->where('is_admin',true)->first(),
     ]);
 });
 
