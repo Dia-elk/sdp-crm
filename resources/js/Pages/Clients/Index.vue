@@ -54,8 +54,8 @@ import {Head, useForm} from "@inertiajs/vue3";
 import ClientsTable from "@/Shared/Clients/ClientsTable.vue";
 import {Link} from "@inertiajs/vue3";
 import Pagination from "@/Shared/Pagination.vue";
-import {ref, watch} from "vue";
-import {Inertia} from "@inertiajs/inertia";
+import {ref} from "vue";
+
 
 defineProps({
     clients: Array
@@ -63,15 +63,5 @@ defineProps({
 
 let search = ref('')
 
-watch(search, (value) => {
-        Inertia.get('/clients',
-            {
-                search: value,
-            },
-            {
-                preserveState: true,
-                replace: false,
-            });
-})
 
 </script>
