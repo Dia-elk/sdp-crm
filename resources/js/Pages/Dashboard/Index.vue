@@ -28,7 +28,7 @@
                         Orders :
                     </h1>
                     <div class="grid md:grid-cols-2 gap-4 ">
-                        <div v-for="order in orders">
+                        <div v-for="order in orders.data">
                             <OrderCard
                                 :order="order"
                             />
@@ -75,7 +75,7 @@ defineProps({
     monthIncome: Array,
     yearIncome: Array,
     ordersCount: Number,
-    orders: Array,
+    orders: Object,
     topClients : Array,
 })
 </script>

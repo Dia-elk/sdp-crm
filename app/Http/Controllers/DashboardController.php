@@ -22,7 +22,7 @@ class DashboardController extends Controller
             'monthIncome' => Order::getTotalIncomeLastMonth(),
             'yearIncome' => Order::getTotalIncomeLastYear(),
             'ordersCount' => Order::onGoingOrdersCount(),
-            'orders' => Order::latest()->with(['client', 'product' , 'statut'])->where('statut_id', 1)->get(),
+            'orders' => Order::latest()->with(['client', 'product' , 'statut'])->where('statut_id', 1)->paginate(10),
             'topClients' => Client::topClients(),
         ]);
     }

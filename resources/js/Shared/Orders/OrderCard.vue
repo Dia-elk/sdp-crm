@@ -73,10 +73,4 @@ defineProps({
     order : Object,
 })
 
-
-function formatDate(date)
-{
-
-}
-
 </script>

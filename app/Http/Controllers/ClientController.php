@@ -13,7 +13,23 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Clients/Index');
+        $clients = Client::with('order')
+            ->withCount('order')
+            ->orderByDesc('created_at')
+            ->get()
+            ->map(function ($client){
+            return [
+                'id' => $client->id,
+                'name' => $client->name,
+                'email' => $client->email,
+                'phone' => $client->phone,
+                'ordersCount' => $client->order_count,
+                'totalSpent' => $client->order->sum('price'),
+            ];
+        });
+        return Inertia::render('Clients/Index' ,[
+            'clients' => $clients,
+        ]);
     }
 
     /**
