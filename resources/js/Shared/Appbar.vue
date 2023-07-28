@@ -21,7 +21,7 @@
         <!-- End of Drawer open icon -->
 
         <!-- Drawer close icon -->
-        <div class="sm:hidden z-40" v-show="isOpen" @click="drawerToggle">
+        <div class="sm:hidden z-50" v-show="isOpen" @click="drawerToggle">
             <Close/>
         </div>
         <!-- End of Drawer close icon -->

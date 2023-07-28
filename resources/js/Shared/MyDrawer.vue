@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen  w-[300px] sm:hidden transition-all  top-0 duration-500 z-10 fixed flex flex-col gap-4  py-16 top-0 bg-white "
+    <div class="h-screen  w-[300px] sm:hidden transition-all  top-0 duration-500 z-40 fixed flex flex-col gap-4  py-16 top-0 bg-white "
          :class="isOpen? 'right-0':'  right-[-300px]'"
          >
         <!-- Dashboard link -->
@@ -192,7 +192,7 @@
     </div>
 
     <!-- drawer background -->
-    <div class="h-screen w-full sm:hidden  bg-black opacity-40  fixed transition-all duration-300  top-0"
+    <div class="h-screen w-full sm:hidden z-10  bg-black opacity-40  fixed transition-all duration-300  top-0"
          :class="isOpen? 'left-0':' left-[-640px]'"
        >
     </div>
