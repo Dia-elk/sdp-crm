@@ -1,8 +1,8 @@
 <template>
     <Head title="Order"/>
-   <AdminLayout>
+
        Order {{order.id}}
-   </AdminLayout>
+
 </template>
 
 <script setup>
@@ -12,4 +12,12 @@ import {Head} from "@inertiajs/vue3";
 defineProps({
     order :Object,
 })
+</script>
+
+<script>
+import AdminLayout from "@/Layouts/AdminLayout.vue";
+
+export default {
+    layout: AdminLayout
+}
 </script>

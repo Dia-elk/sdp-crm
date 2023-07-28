@@ -5,14 +5,22 @@
             Clients :
         </h1>
         <!-- search input -->
-        <div class="hidden md:block">
+        <div class="hidden md:flex items-center gap-4">
             <form>
                 <input type="search"
-                       class="bg-transparent w-[250px] h-[38px] border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                       class="bg-transparent w-[250px] h-[40px]  rounded-lg border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                        placeholder="Search...">
             </form>
+          <Link :href="route('clients.create')">
+              <div class="px-6 h-[39px] cursor-pointer hover:bg-blue-700 transition-all duration-300 flex justify-center items-center bg-blue-600 rounded-lg">
+                  <p class=" text-white text-sm  font-semibold">
+                      Add Client
+                  </p>
+              </div>
+          </Link>
         </div>
         <!-- end of search input -->
+
     </div>
     <div class="">
         <ClientsTable
@@ -30,9 +38,9 @@ export default {
 </script>
 <script setup>
 
-import AdminLayout from "@/Layouts/AdminLayout.vue";
 import {Head} from "@inertiajs/vue3";
 import ClientsTable from "@/Shared/Clients/ClientsTable.vue";
+import {Link} from "@inertiajs/vue3";
 
 defineProps({
     clients:Array
