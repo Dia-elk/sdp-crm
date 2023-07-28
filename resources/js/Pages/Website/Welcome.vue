@@ -1,6 +1,6 @@
 <template>
     <Head title="Welcome"/>
-    <div class="flex bg-[url('images/welcomeBg.jpg')] bg-cover justify-center items-center h-screen ">
+    <div class="flex myBg bg-cover justify-center items-center h-screen ">
         <div class="bg-white justify-center items-center flex flex-col gap-16 bg-opacity-20 backdrop-blur-md rounded-lg p-6">
             <div class="text-2xl font-bold ">
                 Login Information:
@@ -41,4 +41,10 @@ defineProps({
     admin : Object,
 })
 </script>
+
+<style>
+.myBg{
+    background-image: url("/images/welcomeBg.jpg");
+}
+</style>
 
