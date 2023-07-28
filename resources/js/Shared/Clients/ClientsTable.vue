@@ -45,7 +45,7 @@
                 </td>
                 <td class=" py-4">
                     <div class="flex items-center justify-around">
-                        <Link :href="route('clients.show',9)">
+                        <Link :href="route('clients.show',client.id)">
                             <EyeIcon/>
                         </Link>
 

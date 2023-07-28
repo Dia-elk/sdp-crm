@@ -34,6 +34,13 @@
                             />
                         </div>
                     </div>
+                    <!-- Pagination -->
+                    <div class=" flex justify-center">
+                        <Pagination
+                        :pagination-links="orders.links"
+                        />
+                    </div>
+                    <!-- End of Pagination -->
                 </div>
                 <!-- End of Orders -->
 
@@ -69,6 +76,7 @@ import {Head, Link} from "@inertiajs/vue3";
 import IncomOverview from "@/Shared/Overview/Overview.vue";
 import OrderCard from "@/Shared/Orders/OrderCard.vue";
 import TopClientsCard from "@/Shared/Clients/TopClientsCard.vue";
+import Pagination from "@/Shared/Pagination.vue";
 
 defineProps({
     weekIncome: Array,

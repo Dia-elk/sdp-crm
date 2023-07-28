@@ -11,23 +11,30 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::with('order')
+        $clients = Client::query()
+            ->when($request->input('search'), function ($query, $search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('phone', 'like', "%{$search}%");
+            })
+            ->with('order')
             ->withCount('order')
             ->orderByDesc('created_at')
-            ->get()
-            ->map(function ($client){
-            return [
-                'id' => $client->id,
-                'name' => $client->name,
-                'email' => $client->email,
-                'phone' => $client->phone,
-                'ordersCount' => $client->order_count,
-                'totalSpent' => $client->order->sum('price'),
-            ];
-        });
-        return Inertia::render('Clients/Index' ,[
+            ->paginate()
+            ->withQueryString()
+            ->through(function ($client) {
+                return [
+                    'id' => $client->id,
+                    'name' => $client->name,
+                    'email' => $client->email,
+                    'phone' => $client->phone,
+                    'ordersCount' => $client->order_count,
+                    'totalSpent' => $client->order->sum('price'),
+                ];
+            });
+        return Inertia::render('Clients/Index', [
             'clients' => $clients,
         ]);
     }

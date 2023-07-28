@@ -5,10 +5,10 @@
            Orders :
        </h1>
        <!-- search input -->
-      <div class="w-[300px] hidden md:block">
+      <div class="w-[350px] hidden md:block">
           <form>
               <input type="search"
-                     class="bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                     class="bg-transparent border rounded-lg border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                      placeholder="Search..."
               >
           </form>
@@ -29,6 +29,11 @@
             />
         </div>
     </div>
+    <div class="flex mt-4 justify-center">
+        <Pagination
+            :pagination-links="orders.links"
+        />
+    </div>
 </template>
 
 <script>
@@ -43,10 +48,13 @@ export default {
 import {Head, useForm} from "@inertiajs/vue3";
 import OrderCard from "@/Shared/Orders/OrderCard.vue";
 import {ref, watch} from "vue";
+import Pagination from "@/Shared/Pagination.vue";
 
 defineProps({
     orders:Array,
 })
+
+
 
 
 
