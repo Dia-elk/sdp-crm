@@ -95,9 +95,10 @@ class Order extends Model
 
     public  static function getTotalIncomeLastYear(): array
     {
+        //current Year info
         $currentYearStartDate = Carbon::now()->startOfYear();
         $currentYearEndDate = Carbon::now()->endOfYear();
-
+        //last Year info
         $lastYearStartDate = Carbon::now()->subYear()->startOfYear();
         $lastYearEndDate = Carbon::now()->subYear()->endOfYear();
 

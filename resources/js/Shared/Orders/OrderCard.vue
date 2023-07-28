@@ -8,7 +8,9 @@
                     <p class="text-xs text-black text-opacity-40">
                         {{moment(order.created_at).format("DD-MM-YYYY")}}
                     </p>
-                    <EyeIcon/>
+                    <Link :href="route('orders.show',order)">
+                        <EyeIcon/>
+                    </Link>
                 </div>
             </div>
             <ul class="px-4 space-y-2">
@@ -64,6 +66,7 @@ import EyeIcon from "@/Icons/EyeIcon.vue";
 import moment from "moment";
 import DoneStatut from "@/Shared/Statuts/DoneStatut.vue";
 import CancelledStatut from "@/Shared/Statuts/CancelledStatut.vue";
+import {Link} from "@inertiajs/vue3";
 
 
 defineProps({
