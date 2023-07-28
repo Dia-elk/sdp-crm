@@ -25,9 +25,7 @@ Route::middleware('auth')->group(function (){
 
     Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 
-    Route::get('/clients', function (){
-        return Inertia::render('Clients/Index');
-    })->name('clients');
+    Route::resource('clients', \App\Http\Controllers\ClientController::class);
 
     Route::resource('orders' , \App\Http\Controllers\OrderController::class);
 

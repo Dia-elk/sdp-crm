@@ -9,10 +9,11 @@
         </div>
         <div class="flow-root">
             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                <Link href="/clients">
+
                 <li class="py-3 sm:py-4 cursor-pointer"
                 v-for="client in clients"
                 >
+                    <Link :href="route( 'clients.show' , client)">
                     <div class="flex items-center space-x-4">
                         <div class="flex-1 min-w-0">
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -28,8 +29,9 @@
                             </p>
                         </div>
                     </div>
+                    </Link>
                 </li>
-                </Link>
+
             </ul>
         </div>
     </div>
