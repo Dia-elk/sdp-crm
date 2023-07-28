@@ -1,23 +1,26 @@
 <template>
     <Head title="Welcome"/>
-    <div class="flex myBg bg-cover justify-center items-center h-screen ">
-        <div class="bg-white justify-center items-center flex flex-col gap-16 bg-opacity-20 backdrop-blur-md rounded-lg p-6">
+    <div class="flex myBg bg-cover text-white justify-center items-center h-screen ">
+        <div class="bg-white justify-center items-center flex flex-col gap-10 bg-opacity-20 backdrop-blur-sm rounded-lg p-6">
             <div class="text-2xl font-bold ">
                 Login Information:
             </div>
 
-            <div class="flex gap-6">
+            <div class="flex flex-col  text-white md:flex-row gap-6">
                 <!-- user -->
                 <div>
-                    <h1 class="font-bold">For a User:</h1>
-                    <p>E-mail : {{user.email}}</p>
-                    <p>Password : password</p>
+                    <h1 class="font-bold text-white  ">For a User:</h1>
+                    <p class="text-sm text-opacity-60 text-white">E-mail : {{user.email}}</p>
+                    <p class="text-sm text-opacity-60 text-white">Password : password</p>
+                </div>
+                <div class="md:w-[1px] md:h-[80px] bg-white ">
+
                 </div>
                 <!-- admin -->
                 <div>
-                    <h1 class="font-bold">For an Admin:</h1>
-                    <p>E-mail : {{admin.email}}</p>
-                    <p>Password : password</p>
+                    <h1 class="font-bold text-white ">For an Admin:</h1>
+                    <p class="text-sm text-opacity-60 text-white">E-mail : {{admin.email}}</p>
+                    <p class="text-sm text-opacity-60 text-white">Password : password</p>
                 </div>
             </div>
 
