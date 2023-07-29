@@ -1,8 +1,8 @@
 <template>
 
     <div class="relative overflow-x-auto">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left text-gray-500 ">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     E-mail
@@ -26,35 +26,34 @@
             </thead>
             <tbody>
 
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cursor-default"
-            v-for="client in clients" :key="client.id">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{client.email}}
+            <tr class="bg-white border-b  cursor-default"
+                v-for="client in clients" :key="client.id">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                    {{ client.email }}
                 </th>
                 <td class="px-6 py-4">
-                    {{client.name}}
+                    {{ client.name }}
                 </td>
                 <td class="px-6 py-4">
-                    {{client.phone}}
+                    {{ client.phone }}
                 </td>
                 <td class="px-6 py-4">
-                    {{client.ordersCount}}
+                    <p v-show="client.ordersCount">{{ client.ordersCount }}</p>
+                    <p v-show="!client.ordersCount">-</p>
                 </td>
                 <td class="px-6 py-4">
-                    {{client.totalSpent}} Dh
+                    <p v-show="client.totalSpent">{{ client.totalSpent }}  Dh</p>
+                    <p v-show="!client.totalSpent">-</p>
                 </td>
-                <td class=" py-4">
-                    <div class="flex items-center justify-around">
+
+                <td>
+                    <div class="flex items-center justify-center gap-4">
                         <Link :href="route('clients.show',client.id)">
                             <EyeIcon/>
                         </Link>
 
-                        <Link >
+                        <Link :href="route('clients.edit',client.id)">
                             <EditIcon/>
-                        </Link>
-
-                        <Link >
-                            <DeleteIcon/>
                         </Link>
 
                     </div>
@@ -74,6 +73,6 @@ import EditIcon from "@/Icons/EditIcon.vue";
 import {Link} from "@inertiajs/vue3";
 
 defineProps({
-    clients:Array
+    clients: Array
 })
 </script>

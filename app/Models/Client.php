@@ -27,6 +27,8 @@ class Client extends Model
     {
         // get clients with orders
         $Clients = Client::with('order')
+            ->withSum('order','price')
+            ->orderByDesc('order_sum_price')
             ->get();
 
         // map over clients to return data with totalSpent
@@ -36,12 +38,12 @@ class Client extends Model
                 'name' => $client->name,
                 'email' => $client->email,
                 'phone' => $client->phone,
-                'totalSpent' => $client->order->sum('price'),
+                'totalSpent' => $client->order_sum_price,
             ];
         });
 
         // Take the best 10 client and re-index them with values()
-        return $ClientsData->sortByDesc('totalSpent')->values()->take(10);
+        return $ClientsData->take(15);
 
     }
 }

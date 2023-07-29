@@ -20,18 +20,19 @@ class ClientController extends Controller
                     ->orWhere('phone', 'like', "%{$search}%");
             })
             ->with('order')
+            ->withSum('order','price')
             ->withCount('order')
-            ->orderByDesc('created_at')
+            ->orderByDesc('order_sum_price')
             ->paginate()
             ->withQueryString()
             ->through(function ($client) {
-                return [
+               return [
                     'id' => $client->id,
                     'name' => $client->name,
                     'email' => $client->email,
                     'phone' => $client->phone,
                     'ordersCount' => $client->order_count,
-                    'totalSpent' => $client->order->sum('price'),
+                    'totalSpent' => $client->order_sum_price,
                 ];
             });
         return Inertia::render('Clients/Index', [
@@ -52,17 +53,17 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show(string $id)
     {
-        $clientData = $client->with('order.product')->find($client)->first();
+       Client::with('order.product' , 'address')->where('id',$id)->first();
         return Inertia::render('Clients/Show', [
-            'client' => $clientData
+            'client' => Client::with('order.product' , 'order.statut' , 'address')->where('id',$id)->first()
         ]);
     }
 
@@ -71,7 +72,13 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        Client::with('order.product' , 'address')->where('id',$id)->first();
+        return Inertia::render('Clients/Edit', [
+            'client' => Client::with( 'address')
+                ->withCount('order')
+                ->where('id',$id)
+                ->first()
+        ]);
     }
 
     /**
@@ -87,6 +94,8 @@ class ClientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        sleep(1);
+        Client::destroy($id);
+        return to_route('clients.index')->with('message','the client has been deleted');
     }
 }

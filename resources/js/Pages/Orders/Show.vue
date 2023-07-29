@@ -1,7 +1,13 @@
 <template>
     <Head title="Order"/>
 
-       Order {{order.id}}
+      <p> Order quantity : {{order.quantity}}</p>
+    <p> Client name : {{order.client.name}}</p>
+    <p> Client Address : {{order.client.address.country}}</p>
+    <p> Product: {{order.product.name}}</p>
+    <p> Statut: {{order.statut.name}}</p>
+    <p> user: {{order.user.name}}</p>
+
 
 </template>
 

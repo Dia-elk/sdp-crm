@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignIdFor(Product::class)->constrained('products');
             $table->foreignIdFor(File::class)->constrained('files');
             $table->foreignIdFor(User::class)->constrained('users');
-            $table->foreignIdFor(Client::class)->constrained('clients');
+            $table->foreignIdFor(Client::class)->constrained('clients')->cascadeOnDelete();
             $table->foreignIdFor(Statut::class)->constrained('statuts');
             $table->integer('quantity');
             $table->double('price');

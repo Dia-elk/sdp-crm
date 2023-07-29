@@ -8,7 +8,7 @@
                     <p class="text-xs text-black text-opacity-40">
                         {{moment(order.created_at).format("DD-MM-YYYY")}}
                     </p>
-                    <Link :href="route('orders.show',order)">
+                    <Link :href="route('orders.show',order.id)">
                         <EyeIcon/>
                     </Link>
                 </div>
@@ -40,14 +40,8 @@
                 </li>
             </ul>
             <div class="p-4 flex  justify-end">
-                <InProgressStatut
-                    v-show="order.statut.id === 1"
-                />
-                <DoneStatut
-                    v-show="order.statut.id === 2"
-                />
-                <CancelledStatut
-                    v-show="order.statut.id === 3"
+                <StatutsCard
+                :statut="order.statut"
                 />
             </div>
         </div>
@@ -61,12 +55,10 @@
 
 <script setup>
 
-import InProgressStatut from "@/Shared/Statuts/InProgressStatut.vue";
 import EyeIcon from "@/Icons/EyeIcon.vue";
 import moment from "moment";
-import DoneStatut from "@/Shared/Statuts/DoneStatut.vue";
-import CancelledStatut from "@/Shared/Statuts/CancelledStatut.vue";
 import {Link} from "@inertiajs/vue3";
+import StatutsCard from "@/Shared/Statuts/StatutsCard.vue";
 
 
 defineProps({

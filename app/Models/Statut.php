@@ -11,7 +11,8 @@ class Statut extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'color',
     ];
     public function order():HasMany
     {

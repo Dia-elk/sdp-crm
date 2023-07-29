@@ -10,7 +10,7 @@
 
             <form>
                 <input type="search"
-                       class="bg-transparent w-[350px] h-[40px]  rounded-lg border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                       class="bg-transparent w-[320px] h-[40px]  rounded-lg border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                        placeholder="Search..."
                        v-model="search"
                 >
@@ -50,7 +50,7 @@ export default {
 </script>
 <script setup>
 
-import {Head, useForm} from "@inertiajs/vue3";
+import {Head} from "@inertiajs/vue3";
 import ClientsTable from "@/Shared/Clients/ClientsTable.vue";
 import {Link} from "@inertiajs/vue3";
 import Pagination from "@/Shared/Pagination.vue";
@@ -62,6 +62,5 @@ defineProps({
 })
 
 let search = ref('')
-
 
 </script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Statut;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -11,10 +12,18 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('Orders/Index',[
-            'orders' => Order::latest()->with(['client', 'product' , 'statut'])->paginate(30),
+            'orders' => Order::with(['client', 'product' , 'statut'])
+                ->when($request->input('statut'), function ($query, $statut) {
+                    // Access the "statut" relationship within the closure and apply the filter
+                    $query->whereHas('statut', function ($statutQuery) use ($statut){
+                        $statutQuery->where('name', 'like', "%{$statut}%");
+                    });
+                })
+                ->paginate(30),
+            'statuts' => Statut::all()
         ]);
     }
 
@@ -37,10 +46,11 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(string $id)
     {
+
         return Inertia::render('Orders/Show',[
-            'order' => $order
+            'order' => Order::with('client.address', 'product','statut','user')->where('id',$id)->first()
         ]);
     }
 
