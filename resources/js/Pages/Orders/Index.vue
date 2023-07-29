@@ -25,7 +25,7 @@
                   v-for="statut in statuts"
                   :key="statut.id"
                   :class="decodeURIComponent($page.url).startsWith('/orders?statut=' + statut.name)? 'text-blue-600 font-bold ':'text-black text-opacity-40'"
-                  @click="filterByStatut(statut.name)"
+
             >
                 {{ statut.name }}
             </Link>
@@ -56,9 +56,7 @@ export default {
 <script setup>
 import {Head, useForm} from "@inertiajs/vue3";
 import OrderCard from "@/Shared/Orders/OrderCard.vue";
-import {computed, ref, watch} from "vue";
 import Pagination from "@/Shared/Pagination.vue";
-import {Inertia} from "@inertiajs/inertia";
 import {Link} from "@inertiajs/vue3";
 
 defineProps({
@@ -67,18 +65,11 @@ defineProps({
 })
 
 
-function filterByStatut(statut) {
-
-    Inertia.get(
-        route(
-            'orders.index',
-            {
-                statut: statut
-            },
-        )
-    );
-
-}
+// function filterByStatut(statut) {
+//
+//  Inertia.get(route('orders.index', {statut: statut},));
+//
+// }
 
 
 </script>
