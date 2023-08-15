@@ -21,7 +21,8 @@ class DashboardController extends Controller
             'weekIncome' => Order::getTotalIncomeLastWeek(),
             'monthIncome' => Order::getTotalIncomeLastMonth(),
             'yearIncome' => Order::getTotalIncomeLastYear(),
-            'ordersCount' => Order::onGoingOrdersCount(),
+            'pendingOrdersCount' => Order::onGoingOrdersCount(),
+            'doneOrdersCount' => Order::doneOrdersCount(),
             'orders' => Order::latest()->with(['client', 'product' , 'statut'])->where('statut_id', 1)->paginate(10),
             'topClients' => Client::topClients(),
         ]);

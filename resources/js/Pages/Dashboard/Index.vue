@@ -4,7 +4,7 @@
     <div class="space-y-4 w-full h-full">
 
         <!-- Overview -->
-        <div class="space-y-4" v-if="$page.props.auth.user.is_admin === 1">
+        <div class="space-y-4">
             <h1 class="text-2xl font-bold">
                 Overview
             </h1>
@@ -13,7 +13,8 @@
                 :week-income="weekIncome"
                 :month-income="monthIncome"
                 :year-income="yearIncome"
-                :orders-count="ordersCount"
+                :pending-orders-count="pendingOrdersCount"
+                :done-orders-count="doneOrdersCount"
             />
         </div>
         <!-- End of Overview -->
@@ -82,7 +83,8 @@ defineProps({
     weekIncome: Array,
     monthIncome: Array,
     yearIncome: Array,
-    ordersCount: Number,
+    pendingOrdersCount: Number,
+    doneOrdersCount : Number,
     orders: Object,
     topClients : Array,
 })

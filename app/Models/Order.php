@@ -123,4 +123,8 @@ class Order extends Model
     {
         return Order::where('statut_id',1)->count();
     }
+    public static function doneOrdersCount()
+    {
+        return Order::where('statut_id',3)->count();
+    }
 }

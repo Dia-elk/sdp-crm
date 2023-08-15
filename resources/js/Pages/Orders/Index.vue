@@ -25,10 +25,10 @@
                   v-for="statut in statuts"
                   :key="statut.id"
                   :class="decodeURIComponent($page.url).startsWith('/orders?statut=' + statut.name)? 'text-blue-600 font-bold ':'text-black text-opacity-40'"
-
             >
                 {{ statut.name }}
             </Link>
+
         </div>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full min-h-full">
@@ -63,13 +63,6 @@ defineProps({
     orders: Array,
     statuts: Array,
 })
-
-
-// function filterByStatut(statut) {
-//
-//  Inertia.get(route('orders.index', {statut: statut},));
-//
-// }
 
 
 </script>
