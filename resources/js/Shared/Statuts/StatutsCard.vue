@@ -1,14 +1,14 @@
 <template>
     <div class="h-6 w-20 flex justify-center items-center gap-2 rounded-full border-[0.6px]"
-         :class="'border-'+ colorStatut"
+         :class="'border-'+ statut.color"
     >
         <div class="w-[5px] h-[5px]  rounded-full"
-             :class="'bg-'+ colorStatut"
+             :class="'bg-'+ statut.color"
         >
 
         </div>
         <p class="text-[8px]   font-bold "
-           :class="'text-'+ colorStatut"
+           :class="'text-'+ statut.color"
         >
             {{statut.name}}
         </p>
@@ -16,11 +16,10 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
 
 defineProps({
     statut :Object
 })
-let colorStatut = ref('red-400')
+
 
 </script>
